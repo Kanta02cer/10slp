@@ -1,14 +1,55 @@
 export default function Services() {
   // ポートフォリオ画像のパス（BASE_URLを考慮）
   const baseUrl = import.meta.env.BASE_URL;
-  const portfolioImages = {
-    crosslab: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.41.28.png')}`,
-    bandai: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.41.47.png')}`,
-    bankenRecruit: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.41.57.png')}`,
-    pagurisuta: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.42.05.png')}`,
-    bandaiRecruit: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.42.12.png')}`,
-    bankenPaint: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.42.20.png')}`,
-  };
+  const portfolioItems = [
+    {
+      title: '株式会社CROSSLAB',
+      url: 'https://crosslab.readdy.co',
+      image: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.41.28.png')}`,
+    },
+    {
+      title: '株式会社万代',
+      url: 'https://komuten-osaka-fc.readdy.co',
+      image: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.41.47.png')}`,
+    },
+    {
+      title: '株式会社万代建設',
+      url: 'https://banken-recruit.readdy.co',
+      image: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.41.57.png')}`,
+    },
+    {
+      title: 'PAGRISTA CLUB Pullover Hoodie',
+      subtitle: '（ゴルフファッションブランド）',
+      url: 'https://pagurisutaclub.readdy.co',
+      image: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.42.05.png')}`,
+    },
+    {
+      title: '株式会社万代（採用情報）',
+      url: 'https://bandai-recruit.readdy.co',
+      image: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.42.12.png')}`,
+    },
+    {
+      title: 'BANKEN塗装',
+      url: 'https://banken-paint.readdy.co',
+      image: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.42.20.png')}`,
+    },
+  ];
+
+  // カルーセル用の状態管理
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  // 自動スクロール（少し早め: 2.5秒）
+  useEffect(() => {
+    if (isPaused) return;
+    
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % (portfolioItems.length * 2));
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, [isPaused, portfolioItems.length]);
   return (
     <section id="services" className="relative py-32 bg-gradient-to-br from-rose-50 via-white to-emerald-50 overflow-hidden">
       {/* Background Elements */}
@@ -85,7 +126,7 @@ export default function Services() {
         <div className="mb-20">
           <h3 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
             丸投げプラン（ペライチ形式）
-          </h3>
+              </h3>
           <p className="text-xl text-gray-700 text-center mb-12 font-medium">
             縦長の1枚ページで、成約率を最大化します。
           </p>
@@ -100,14 +141,14 @@ export default function Services() {
                   165,000円
                 </div>
                 <div className="text-sm text-gray-600">（税込）</div>
-              </div>
+            </div>
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
                   <i className="ri-check-line text-emerald-500 text-xl mt-1"></i>
                   <div>
                     <div className="font-bold text-gray-900">基本デザインと自由構成</div>
                     <div className="text-sm text-gray-600">（お客様側からの持ち込み必須）</div>
-                  </div>
+          </div>
                 </div>
               </div>
             </div>
@@ -186,10 +227,69 @@ export default function Services() {
                   <i className="ri-check-line text-emerald-500 text-xl mt-1"></i>
                   <div>
                     <div className="font-bold text-gray-900">修正3回</div>
-                  </div>
+          </div>
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* LP制作プラン 比較表 */}
+          <div className="mt-12 overflow-x-auto">
+            <table className="w-full min-w-[800px] bg-white rounded-2xl shadow-xl border-2 border-gray-200 overflow-hidden">
+              <thead>
+                <tr className="bg-gradient-to-r from-red-500 to-pink-500 text-white">
+                  <th className="px-6 py-4 text-left font-bold">機能</th>
+                  <th className="px-6 py-4 text-center font-bold">SAISOKU<br/>55,000円</th>
+                  <th className="px-6 py-4 text-center font-bold">スターター<br/>165,000円</th>
+                  <th className="px-6 py-4 text-center font-bold">スタンダード<br/>330,000円</th>
+                  <th className="px-6 py-4 text-center font-bold">プレミアム<br/>660,000円</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">構成提案</td>
+                  <td className="px-6 py-4 text-center">-</td>
+                  <td className="px-6 py-4 text-center">-</td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">オリジナルデザイン</td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">修正回数</td>
+                  <td className="px-6 py-4 text-center">-</td>
+                  <td className="px-6 py-4 text-center">1回</td>
+                  <td className="px-6 py-4 text-center">3回</td>
+                  <td className="px-6 py-4 text-center">3回</td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">デザインカンプ作成</td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">CMS対応</td>
+                  <td className="px-6 py-4 text-center">-</td>
+                  <td className="px-6 py-4 text-center">-</td>
+                  <td className="px-6 py-4 text-center">-</td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">ページ形式</td>
+                  <td className="px-6 py-4 text-center">ペライチ（固定5セクション）</td>
+                  <td className="px-6 py-4 text-center">ペライチ（自由構成）</td>
+                  <td className="px-6 py-4 text-center">ペライチ</td>
+                  <td className="px-6 py-4 text-center">ペライチ</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
@@ -197,7 +297,7 @@ export default function Services() {
         <div className="mb-20">
           <h3 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
             WEBサイト制作（複数ページ構成）
-          </h3>
+              </h3>
           <p className="text-xl text-gray-700 text-center mb-12 font-medium">
             情報量の多い物件紹介や、会社案内を兼ねたサイト構築に。
           </p>
@@ -226,8 +326,8 @@ export default function Services() {
                   66万円
                 </div>
                 <div className="text-sm text-gray-600">（税込）</div>
-              </div>
             </div>
+          </div>
 
             {/* エンタープライズプラン */}
             <div className="bg-white rounded-3xl p-8 shadow-xl border-4 border-emerald-400 relative hover:scale-105 transition-all duration-300">
@@ -246,12 +346,70 @@ export default function Services() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-3xl p-8 border-4 border-white shadow-xl max-w-3xl mx-auto">
+          <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-3xl p-8 border-4 border-white shadow-xl max-w-3xl mx-auto mb-12">
             <div className="text-center">
               <div className="text-lg font-bold text-gray-900 mb-2">オプション：CMS実装</div>
               <div className="text-2xl font-bold text-emerald-700">（お知らせ等の更新機能）</div>
               <div className="text-3xl font-bold text-emerald-600 mt-2">＋300,000円</div>
             </div>
+          </div>
+
+          {/* WEBサイト制作プラン 比較表 */}
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[800px] bg-white rounded-2xl shadow-xl border-2 border-gray-200 overflow-hidden">
+              <thead>
+                <tr className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white">
+                  <th className="px-6 py-4 text-left font-bold">機能</th>
+                  <th className="px-6 py-4 text-center font-bold">ライト<br/>33万円</th>
+                  <th className="px-6 py-4 text-center font-bold">ミドル<br/>66万円</th>
+                  <th className="px-6 py-4 text-center font-bold">エンタープライズ<br/>110万円</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">ページ数</td>
+                  <td className="px-6 py-4 text-center">約3ページ<br/><span className="text-sm text-gray-600">(A4換算 約3枚分)</span></td>
+                  <td className="px-6 py-4 text-center">約8ページ<br/><span className="text-sm text-gray-600">(A4換算 約8枚分)</span></td>
+                  <td className="px-6 py-4 text-center">10ページ以上<br/><span className="text-sm text-gray-600">(A4換算 約10枚分〜)</span></td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">構成提案</td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">オリジナルデザイン</td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">修正回数</td>
+                  <td className="px-6 py-4 text-center">3回</td>
+                  <td className="px-6 py-4 text-center">3回</td>
+                  <td className="px-6 py-4 text-center">3回</td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">デザインカンプ作成</td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">CMS対応</td>
+                  <td className="px-6 py-4 text-center">-<br/><span className="text-sm text-gray-600">(オプション +30万円)</span></td>
+                  <td className="px-6 py-4 text-center">-<br/><span className="text-sm text-gray-600">(オプション +30万円)</span></td>
+                  <td className="px-6 py-4 text-center">-<br/><span className="text-sm text-gray-600">(オプション +30万円)</span></td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">ページ形式</td>
+                  <td className="px-6 py-4 text-center">複数ページ構成</td>
+                  <td className="px-6 py-4 text-center">複数ページ構成</td>
+                  <td className="px-6 py-4 text-center">複数ページ構成</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
@@ -295,150 +453,55 @@ export default function Services() {
         <div className="mb-20">
           <h3 className="text-4xl md:text-5xl font-bold text-center mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
             ポートフォリオ
-          </h3>
+              </h3>
           <p className="text-xl text-gray-700 text-center mb-12 font-medium">
             実際のサイトのワイヤーフレーム、デザインカンプを提示します
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <a
-              href="https://crosslab.readdy.co"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
+          {/* カルーセル */}
+          <div 
+            className="relative overflow-hidden max-w-6xl mx-auto"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            ref={carouselRef}
+          >
+            <div 
+              className="flex transition-transform duration-700 ease-in-out"
+              style={{
+                transform: `translateX(-${(currentIndex % portfolioItems.length) * (100 / Math.min(3, portfolioItems.length))}%)`,
+              }}
             >
-              <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-                <img
-                  src={portfolioImages.crosslab}
-                  alt="株式会社CROSSLAB トップ画面"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </div>
-              <div className="p-5">
-                <div className="text-lg font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors">
-                  株式会社CROSSLAB
+              {/* ループ用に2倍のアイテムを表示 */}
+              {[...portfolioItems, ...portfolioItems].map((item, index) => (
+                <div key={index} className="min-w-[calc(100%/3)] md:min-w-[calc(100%/3)] px-2">
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group block"
+                  >
+                    <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                      <img
+                        src={item.image}
+                        alt={`${item.title} トップ画面`}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div className="p-5">
+                      <div className="text-lg font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors">
+                        {item.title}
+                      </div>
+                      {item.subtitle && (
+                        <div className="text-xs text-gray-600 mb-1">{item.subtitle}</div>
+                      )}
+                      <div className="text-sm text-purple-600 break-all">{item.url.replace('https://', '')}</div>
+                    </div>
+                  </a>
                 </div>
-                <div className="text-sm text-purple-600 break-all">crosslab.readdy.co</div>
-              </div>
-            </a>
-
-            <a
-              href="https://komuten-osaka-fc.readdy.co"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
-            >
-              <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-                <img
-                  src={portfolioImages.bandai}
-                  alt="株式会社万代 トップ画面"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </div>
-              <div className="p-5">
-                <div className="text-lg font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors">
-                  株式会社万代
-                </div>
-                <div className="text-sm text-purple-600 break-all">komuten-osaka-fc.readdy.co</div>
-              </div>
-            </a>
-
-            <a
-              href="https://banken-recruit.readdy.co"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
-            >
-              <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-                <img
-                  src={portfolioImages.bankenRecruit}
-                  alt="株式会社万代建設 トップ画面"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </div>
-              <div className="p-5">
-                <div className="text-lg font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors">
-                  株式会社万代建設
-                </div>
-                <div className="text-sm text-purple-600 break-all">banken-recruit.readdy.co</div>
-              </div>
-            </a>
-
-            <a
-              href="https://pagurisutaclub.readdy.co"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
-            >
-              <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-                <img
-                  src={portfolioImages.pagurisuta}
-                  alt="PAGRISTA CLUB Pullover Hoodie トップ画面"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </div>
-              <div className="p-5">
-                <div className="text-lg font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors">
-                  PAGRISTA CLUB Pullover Hoodie
-                </div>
-                <div className="text-xs text-gray-600 mb-1">（ゴルフファッションブランド）</div>
-                <div className="text-sm text-purple-600 break-all">pagurisutaclub.readdy.co</div>
-              </div>
-            </a>
-
-            <a
-              href="https://bandai-recruit.readdy.co"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
-            >
-              <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-                <img
-                  src={portfolioImages.bandaiRecruit}
-                  alt="株式会社万代（採用情報） トップ画面"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </div>
-              <div className="p-5">
-                <div className="text-lg font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors">
-                  株式会社万代（採用情報）
-                </div>
-                <div className="text-sm text-purple-600 break-all">bandai-recruit.readdy.co</div>
-              </div>
-            </a>
-
-            <a
-              href="https://banken-paint.readdy.co"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
-            >
-              <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-                <img
-                  src={portfolioImages.bankenPaint}
-                  alt="BANKEN塗装 トップ画面"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </div>
-              <div className="p-5">
-                <div className="text-lg font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors">
-                  BANKEN塗装
-                </div>
-                <div className="text-sm text-purple-600 break-all">banken-paint.readdy.co</div>
-              </div>
-            </a>
+              ))}
+            </div>
           </div>
         </div>
 
