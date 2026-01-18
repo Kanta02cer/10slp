@@ -469,79 +469,75 @@ export default function Services() {
             </div>
           </div>
 
-          {/* スタータープラン・プロプラン */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
-            {/* スタータープラン */}
-            <div className="bg-white rounded-3xl p-8 shadow-xl border-4 border-blue-200 hover:border-blue-400 transition-all duration-300">
-              <div className="text-center mb-6">
-                <h4 className="text-2xl font-bold text-gray-900 mb-2">スタータープラン</h4>
-                <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">
-                  月額3万円
-                </div>
-                <div className="text-sm text-gray-600 mb-2">（運用箇所：2箇所まで）</div>
-                <div className="text-sm font-bold text-emerald-600 mb-4">🎁 最初の3ヶ月半額</div>
-              </div>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-start gap-2">
-                  <i className="ri-check-line text-blue-500 text-lg mt-1 flex-shrink-0"></i>
-                  <span className="text-gray-700">SEO対策</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <i className="ri-check-line text-blue-500 text-lg mt-1 flex-shrink-0"></i>
-                  <span className="text-gray-700">サイトの運用</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <i className="ri-check-line text-blue-500 text-lg mt-1 flex-shrink-0"></i>
-                  <span className="text-gray-700">お知らせ</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <i className="ri-check-line text-blue-500 text-lg mt-1 flex-shrink-0"></i>
-                  <span className="text-gray-700">お問い合わせ</span>
-                </div>
-              </div>
-            </div>
-
-            {/* プロプラン */}
-            <div className="bg-white rounded-3xl p-8 shadow-xl border-4 border-indigo-400 relative hover:border-indigo-500 transition-all duration-300">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-indigo-500 to-blue-500 text-white px-6 py-2 rounded-full text-lg font-bold shadow-lg">
-                【おすすめ】
-              </div>
-              <div className="text-center mb-6 mt-4">
-                <h4 className="text-2xl font-bold text-gray-900 mb-2">プロプラン</h4>
-                <div className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent mb-2">
-                  月額10万円
-                </div>
-                <div className="text-sm text-gray-600 mb-1">（運用箇所：3箇所以上）</div>
-                <div className="text-xs text-gray-500 mb-2">5箇所目以上からはベース1箇所3万円</div>
-                <div className="text-sm font-bold text-emerald-600 mb-4">🎁 最初の3ヶ月半額</div>
-              </div>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-start gap-2">
-                  <i className="ri-check-line text-indigo-500 text-lg mt-1 flex-shrink-0"></i>
-                  <span className="text-gray-700">スターターの内容</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <i className="ri-check-line text-indigo-500 text-lg mt-1 flex-shrink-0"></i>
-                  <span className="text-gray-700">記事の作成</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <i className="ri-check-line text-indigo-500 text-lg mt-1 flex-shrink-0"></i>
-                  <span className="text-gray-700">テキスト修正</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <i className="ri-check-line text-indigo-500 text-lg mt-1 flex-shrink-0"></i>
-                  <span className="text-gray-700">記事更新</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <i className="ri-check-line text-indigo-500 text-lg mt-1 flex-shrink-0"></i>
-                  <span className="text-gray-700">定例ヒアリング</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <i className="ri-check-line text-indigo-500 text-lg mt-1 flex-shrink-0"></i>
-                  <span className="text-gray-700">方針の包括的なコンサルティング</span>
-                </div>
-              </div>
-            </div>
+          {/* 運用プラン比較表 */}
+          <div className="overflow-x-auto mb-12">
+            <table className="w-full min-w-[700px] bg-white rounded-2xl shadow-xl border-2 border-gray-200 overflow-hidden max-w-4xl mx-auto">
+              <thead>
+                <tr className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white">
+                  <th className="px-6 py-4 text-left font-bold">機能</th>
+                  <th className="px-6 py-4 text-center font-bold">
+                    <div>スタータープラン</div>
+                    <div className="text-sm font-normal mt-1">月額3万円</div>
+                    <div className="text-xs font-normal">（運用箇所：2箇所まで）</div>
+                    <div className="text-xs font-normal mt-1">🎁 最初の3ヶ月半額</div>
+                  </th>
+                  <th className="px-6 py-4 text-center font-bold">
+                    <div>プロプラン【おすすめ】</div>
+                    <div className="text-sm font-normal mt-1">月額10万円</div>
+                    <div className="text-xs font-normal">（運用箇所：3箇所以上）</div>
+                    <div className="text-xs font-normal">5箇所目以上：1箇所3万円</div>
+                    <div className="text-xs font-normal mt-1">🎁 最初の3ヶ月半額</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">SEO対策</td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">サイトの運用</td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">お知らせ</td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">お問い合わせ</td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">記事の作成</td>
+                  <td className="px-6 py-4 text-center">-</td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">テキスト修正</td>
+                  <td className="px-6 py-4 text-center">-</td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">記事更新</td>
+                  <td className="px-6 py-4 text-center">-</td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">定例ヒアリング</td>
+                  <td className="px-6 py-4 text-center">-</td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">方針の包括的なコンサルティング</td>
+                  <td className="px-6 py-4 text-center">-</td>
+                  <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
