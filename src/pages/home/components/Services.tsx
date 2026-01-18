@@ -1,12 +1,13 @@
 export default function Services() {
-  // ポートフォリオ画像のパス（URLエンコード）
+  // ポートフォリオ画像のパス（BASE_URLを考慮）
+  const baseUrl = import.meta.env.BASE_URL;
   const portfolioImages = {
-    crosslab: encodeURI('/スクリーンショット 2026-01-18 14.41.28.png'),
-    bandai: encodeURI('/スクリーンショット 2026-01-18 14.41.47.png'),
-    bankenRecruit: encodeURI('/スクリーンショット 2026-01-18 14.41.57.png'),
-    pagurisuta: encodeURI('/スクリーンショット 2026-01-18 14.42.05.png'),
-    bandaiRecruit: encodeURI('/スクリーンショット 2026-01-18 14.42.12.png'),
-    bankenPaint: encodeURI('/スクリーンショット 2026-01-18 14.42.20.png'),
+    crosslab: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.41.28.png')}`,
+    bandai: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.41.47.png')}`,
+    bankenRecruit: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.41.57.png')}`,
+    pagurisuta: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.42.05.png')}`,
+    bandaiRecruit: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.42.12.png')}`,
+    bankenPaint: `${baseUrl}${encodeURI('スクリーンショット 2026-01-18 14.42.20.png')}`,
   };
   return (
     <section id="services" className="relative py-32 bg-gradient-to-br from-rose-50 via-white to-emerald-50 overflow-hidden">
