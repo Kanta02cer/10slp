@@ -147,7 +147,7 @@ export default function Requirements() {
             募集要項
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
-            学生インターン・主婦の方も大歓迎！✨<br />
+            学生インターン・主婦の方も大歓迎！<br />
             在宅ワーク・フレックス対応で、あなたのペースで成長できます
           </p>
         </div>
@@ -160,9 +160,14 @@ export default function Requirements() {
             isVisible[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-gray-900">
-            📋 必須条件
-          </h3>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-pink-400 to-rose-400 rounded-lg">
+              <i className="ri-file-list-3-line text-xl text-white"></i>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              必須条件
+            </h3>
+          </div>
           <div className="space-y-6">
             {requirements.map((item, index) => (
               <div 
@@ -189,9 +194,14 @@ export default function Requirements() {
             isVisible[2] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-gray-900">
-            🌈 採用までの流れ
-          </h3>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg">
+              <i className="ri-flow-chart-line text-xl text-white"></i>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              採用までの流れ
+            </h3>
+          </div>
           <div className="space-y-8">
             {flow.map((item, index) => (
               <div 
@@ -218,9 +228,14 @@ export default function Requirements() {
             isVisible[3] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-gray-900">
-            🏢 オフィス
-          </h3>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-emerald-400 to-cyan-400 rounded-lg">
+              <i className="ri-building-4-line text-xl text-white"></i>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              オフィス
+            </h3>
+          </div>
           <div className="bg-gradient-to-r from-emerald-50 to-cyan-50 rounded-xl p-6 sm:p-8 border-l-4 border-emerald-500">
             <h4 className="text-2xl sm:text-3xl font-bold text-emerald-700 mb-4">
               四ツ谷TOMOSUBA
@@ -240,9 +255,14 @@ export default function Requirements() {
             isVisible[4] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-gray-900">
-            💼 業務内容
-          </h3>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-emerald-400 to-cyan-400 rounded-lg">
+              <i className="ri-briefcase-line text-xl text-white"></i>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              業務内容
+            </h3>
+          </div>
           <div className="space-y-4">
             {jobContents.map((item, index) => (
               <div
@@ -268,9 +288,14 @@ export default function Requirements() {
             isVisible[5] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-gray-900">
-            💰 報酬
-          </h3>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-yellow-400 to-orange-400 rounded-lg">
+              <i className="ri-money-dollar-circle-line text-xl text-white"></i>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              報酬
+            </h3>
+          </div>
           <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-6 sm:p-8 border-l-4 border-yellow-500">
             <div className="space-y-3">
               <div className="flex items-baseline gap-3">
@@ -293,9 +318,14 @@ export default function Requirements() {
             isVisible[6] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-gray-900">
-            💼 労働条件
-          </h3>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-cyan-400 to-blue-400 rounded-lg">
+              <i className="ri-calendar-line text-xl text-white"></i>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              労働条件
+            </h3>
+          </div>
           <div className="space-y-8">
             {workingConditions.filter(item => item.title !== '報酬' && item.title !== '勤務場所').map((item, index) => (
               <div key={index} className="flex items-start gap-4 group">
@@ -319,9 +349,14 @@ export default function Requirements() {
             isVisible[7] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-gray-900">
-            🎁 こんなことができます
-          </h3>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-yellow-400 to-orange-400 rounded-lg">
+              <i className="ri-gift-line text-xl text-white"></i>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              こんなことができます
+            </h3>
+          </div>
           <div className="space-y-6">
             {benefits.map((item, index) => (
               <div 
@@ -355,7 +390,7 @@ export default function Requirements() {
             <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
               学業や家事で忙しい方でも、あなたのペースで無理なく活動できます。<br className="hidden sm:block" />
               在宅ワークOK・フレックス対応で、ライフスタイルに合わせて働けます。<br className="hidden sm:block" />
-              経験がなくても大丈夫！丁寧にサポートいたします。✨
+              経験がなくても大丈夫！丁寧にサポートいたします。
             </p>
           </div>
         </div>
