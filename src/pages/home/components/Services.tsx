@@ -125,7 +125,7 @@ export default function Services() {
         {/* LP制作プラン */}
         <div className="mb-20">
           <h3 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
-            丸投げプラン（ペライチ形式）
+            丸投げプラン
               </h3>
           <p className="text-xl text-gray-700 text-center mb-12 font-medium">
             縦長の1枚ページで、成約率を最大化します。
@@ -197,8 +197,8 @@ export default function Services() {
               <div className="bg-gradient-to-r from-red-50 to-pink-50 rounded-xl p-4 text-center">
                 <div className="text-sm font-bold text-gray-900 mb-1">「まずはこの1枚から」</div>
                 <div className="text-xs text-gray-600">構成からデザインまで丸投げできるプラン</div>
-              </div>
             </div>
+          </div>
 
             {/* プレミアムプラン */}
             <div className="bg-white rounded-3xl p-8 shadow-xl border-4 border-gray-200 hover:border-emerald-300 transition-all duration-300 hover:scale-105">
@@ -277,16 +277,16 @@ export default function Services() {
                 <tr className="hover:bg-gray-50">
                   <td className="px-6 py-4 font-medium text-gray-900">CMS対応</td>
                   <td className="px-6 py-4 text-center">-</td>
-                  <td className="px-6 py-4 text-center">-</td>
-                  <td className="px-6 py-4 text-center">-</td>
+                  <td className="px-6 py-4 text-center">-<br/><span className="text-sm text-gray-600">(オプション +30万円)</span></td>
+                  <td className="px-6 py-4 text-center">-<br/><span className="text-sm text-gray-600">(オプション +30万円)</span></td>
                   <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
                 </tr>
                 <tr className="hover:bg-gray-50">
-                  <td className="px-6 py-4 font-medium text-gray-900">ページ形式</td>
-                  <td className="px-6 py-4 text-center">ペライチ（固定5セクション）</td>
-                  <td className="px-6 py-4 text-center">ペライチ（自由構成）</td>
-                  <td className="px-6 py-4 text-center">ペライチ</td>
-                  <td className="px-6 py-4 text-center">ペライチ</td>
+                  <td className="px-6 py-4 font-medium text-gray-900">ページ数</td>
+                  <td className="px-6 py-4 text-center">固定5セクション</td>
+                  <td className="px-6 py-4 text-center">自由構成</td>
+                  <td className="px-6 py-4 text-center">最大2ページ</td>
+                  <td className="px-6 py-4 text-center">最大5ページ</td>
                 </tr>
               </tbody>
             </table>
@@ -446,6 +446,61 @@ export default function Services() {
               <div className="text-2xl font-bold text-rose-600">20,000円〜50,000円（税込）</div>
               <div className="text-sm text-gray-600 mt-2">特別な入力チェックや項目が必要な場合</div>
             </div>
+          </div>
+        </div>
+
+        {/* 運用オプション */}
+        <div className="mb-20">
+          <h3 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            運用オプション
+          </h3>
+          <p className="text-xl text-gray-700 text-center mb-12 font-medium">
+            ウェブサイト・LP運用に関する報酬相場（月額）
+          </p>
+
+          {/* プレミアムプラン特典 */}
+          <div className="max-w-3xl mx-auto mb-12">
+            <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-3xl p-6 border-4 border-emerald-300 shadow-xl">
+              <div className="text-center">
+                <div className="text-lg font-bold text-emerald-700 mb-2">🎉 プレミアムプラン限定特典</div>
+                <div className="text-2xl font-bold text-emerald-800 mb-1">運用サービス 3ヶ月無料</div>
+                <div className="text-base text-emerald-700">その後も永年半額で提供</div>
+              </div>
+            </div>
+          </div>
+
+          {/* 運用報酬相場表（統合） */}
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[800px] bg-white rounded-2xl shadow-xl border-2 border-gray-200 overflow-hidden">
+              <thead>
+                <tr className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white">
+                  <th className="px-6 py-4 text-left font-bold">依頼内容・規模</th>
+                  <th className="px-6 py-4 text-center font-bold">相場（月額）</th>
+                  <th className="px-6 py-4 text-left font-bold">業務内容の目安</th>
+                  <th className="px-6 py-4 text-center font-bold">プレミアム特典</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">保守のみ（小規模）</td>
+                  <td className="px-6 py-4 text-center font-bold text-blue-600">5,000円〜2万円</td>
+                  <td className="px-6 py-4 text-gray-700">サーバー・ドメイン管理、CMSアップデート、SSL管理</td>
+                  <td className="px-6 py-4 text-center text-emerald-600 font-bold">初3ヶ月無料<br/>その後半額</td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">保守＋軽微な更新</td>
+                  <td className="px-6 py-4 text-center font-bold text-blue-600">2万円〜5万円</td>
+                  <td className="px-6 py-4 text-gray-700">上記＋テキスト修正、画像差し替え、軽微なCMS運用</td>
+                  <td className="px-6 py-4 text-center text-emerald-600 font-bold">初3ヶ月無料<br/>その後半額</td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">運用代行（中・大規模）</td>
+                  <td className="px-6 py-4 text-center font-bold text-indigo-600">5万円〜10万円以上</td>
+                  <td className="px-6 py-4 text-gray-700">上記＋定例レポート、記事更新、SEO対策、コンサルティング</td>
+                  <td className="px-6 py-4 text-center text-emerald-600 font-bold">初3ヶ月無料<br/>その後半額</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
