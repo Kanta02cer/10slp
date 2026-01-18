@@ -46,6 +46,9 @@ jobs:
         env:
           BASE_PATH: /10slp/
       
+      - name: Create 404.html for GitHub Pages
+        run: cp out/index.html out/404.html
+      
       - name: Setup Pages
         uses: actions/configure-pages@v5
       
