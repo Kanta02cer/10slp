@@ -299,7 +299,7 @@ export default function Services() {
             >
               <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                 <img
-                  src={`https://image.thum.io/get/width/800/crop/800/allowJPG/wait/2/noanimate/https://crosslab.readdy.co`}
+                  src="/スクリーンショット 2026-01-18 14.41.28.png"
                   alt="株式会社CROSSLAB トップ画面"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   loading="lazy"
@@ -322,7 +322,7 @@ export default function Services() {
             >
               <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                 <img
-                  src={`https://image.thum.io/get/width/800/crop/800/allowJPG/wait/2/noanimate/https://komuten-osaka-fc.readdy.co`}
+                  src="/スクリーンショット 2026-01-18 14.41.47.png"
                   alt="株式会社万代 トップ画面"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   loading="lazy"
@@ -345,7 +345,7 @@ export default function Services() {
             >
               <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                 <img
-                  src={`https://image.thum.io/get/width/800/crop/800/allowJPG/wait/2/noanimate/https://banken-recruit.readdy.co`}
+                  src="/スクリーンショット 2026-01-18 14.41.57.png"
                   alt="株式会社万代建設 トップ画面"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   loading="lazy"
@@ -368,7 +368,7 @@ export default function Services() {
             >
               <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                 <img
-                  src={`https://image.thum.io/get/width/800/crop/800/allowJPG/wait/2/noanimate/https://pagurisutaclub.readdy.co`}
+                  src="/スクリーンショット 2026-01-18 14.42.05.png"
                   alt="PAGRISTA CLUB Pullover Hoodie トップ画面"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   loading="lazy"
@@ -392,7 +392,7 @@ export default function Services() {
             >
               <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                 <img
-                  src={`https://image.thum.io/get/width/800/crop/800/allowJPG/wait/2/noanimate/https://bandai-recruit.readdy.co`}
+                  src="/スクリーンショット 2026-01-18 14.42.12.png"
                   alt="株式会社万代（採用情報） トップ画面"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   loading="lazy"
@@ -415,7 +415,7 @@ export default function Services() {
             >
               <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                 <img
-                  src={`https://image.thum.io/get/width/800/crop/800/allowJPG/wait/2/noanimate/https://banken-paint.readdy.co`}
+                  src="/スクリーンショット 2026-01-18 14.42.20.png"
                   alt="BANKEN塗装 トップ画面"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   loading="lazy"
