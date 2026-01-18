@@ -478,7 +478,8 @@ export default function Services() {
                 <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">
                   月額3万円
                 </div>
-                <div className="text-sm text-gray-600 mb-4">（運用箇所：2箇所まで）</div>
+                <div className="text-sm text-gray-600 mb-2">（運用箇所：2箇所まで）</div>
+                <div className="text-sm font-bold text-emerald-600 mb-4">🎁 最初の3ヶ月半額</div>
               </div>
               <div className="space-y-3 mb-6">
                 <div className="flex items-start gap-2">
@@ -511,7 +512,8 @@ export default function Services() {
                   月額10万円
                 </div>
                 <div className="text-sm text-gray-600 mb-1">（運用箇所：3箇所以上）</div>
-                <div className="text-xs text-gray-500">5箇所目以上からはベース1箇所3万円</div>
+                <div className="text-xs text-gray-500 mb-2">5箇所目以上からはベース1箇所3万円</div>
+                <div className="text-sm font-bold text-emerald-600 mb-4">🎁 最初の3ヶ月半額</div>
               </div>
               <div className="space-y-3 mb-6">
                 <div className="flex items-start gap-2">
@@ -540,40 +542,6 @@ export default function Services() {
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* CMS運用・保守の報酬相場表 */}
-          <div className="mt-12 overflow-x-auto">
-            <table className="w-full min-w-[900px] bg-white rounded-2xl shadow-xl border-2 border-gray-200 overflow-hidden">
-              <thead>
-                <tr className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white">
-                  <th className="px-6 py-4 text-left font-bold">依頼内容・規模</th>
-                  <th className="px-6 py-4 text-center font-bold">相場（月額）</th>
-                  <th className="px-6 py-4 text-left font-bold">業務内容の目安</th>
-                  <th className="px-6 py-4 text-center font-bold">プレミアム特典</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200">
-                <tr className="hover:bg-gray-50">
-                  <td className="px-6 py-4 font-medium text-gray-900">保守のみ（小規模）</td>
-                  <td className="px-6 py-4 text-center font-bold text-blue-600">5,000円〜2万円</td>
-                  <td className="px-6 py-4 text-gray-700">サーバー・ドメイン管理、CMSアップデート、SSL管理</td>
-                  <td className="px-6 py-4 text-center text-emerald-600 font-bold">初3ヶ月無料<br/>その後半額</td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="px-6 py-4 font-medium text-gray-900">保守＋軽微な更新</td>
-                  <td className="px-6 py-4 text-center font-bold text-blue-600">2万円〜5万円</td>
-                  <td className="px-6 py-4 text-gray-700">上記＋テキスト修正、画像差し替え、軽微なCMS運用</td>
-                  <td className="px-6 py-4 text-center text-emerald-600 font-bold">初3ヶ月無料<br/>その後半額</td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="px-6 py-4 font-medium text-gray-900">運用代行（中・大規模）</td>
-                  <td className="px-6 py-4 text-center font-bold text-indigo-600">5万円〜10万円以上</td>
-                  <td className="px-6 py-4 text-gray-700">上記＋定例レポート、記事更新、SEO対策、コンサルティング</td>
-                  <td className="px-6 py-4 text-center text-emerald-600 font-bold">初3ヶ月無料<br/>その後半額</td>
-                </tr>
-              </tbody>
-            </table>
           </div>
         </div>
 
