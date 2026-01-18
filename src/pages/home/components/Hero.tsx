@@ -105,9 +105,9 @@ export default function Hero() {
         </div>
         
         <p className="text-xl md:text-2xl text-gray-800 mb-4 leading-relaxed font-bold max-w-4xl mx-auto">
-          「実物資産」の価値を、10秒で可視化する。
+          情報社会を生き抜くレッドオーシャンを生き抜くウェブサイトを。
         </p>
-        <p className="text-xl md:text-2xl font-bold text-gray-700 mb-12">日本最速の制作パートナー</p>
+        <p className="text-xl md:text-2xl font-bold text-gray-700 mb-12">日本で最速のウェブサイト/LP制作パートナー</p>
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
           <a 
