@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -50,14 +52,49 @@ export default function Hero() {
 
       {/* Logo */}
       <div className="absolute top-8 left-8 z-20">
-        <a href="/" className="bg-white/95 backdrop-blur-sm px-6 py-4 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer block">
+        <Link to="/" className="bg-white/95 backdrop-blur-sm px-6 py-4 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer block">
           <img 
             src={`${import.meta.env.BASE_URL}a2417c44708479b44380b56b2d1311f7.png`}
             alt="10'sLP Logo" 
             className="h-16 w-auto"
           />
-        </a>
+        </Link>
       </div>
+
+      {/* Navigation Menu */}
+      <nav className="absolute top-8 right-8 z-20">
+        <div 
+          className="relative group"
+          style={{
+            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(254, 242, 242, 0.9) 50%, rgba(236, 253, 245, 0.95) 100%)',
+            backdropFilter: 'blur(12px)',
+            padding: '1rem 1.5rem',
+            borderRadius: '1.5rem',
+            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1)',
+            border: '2px solid rgba(255, 255, 255, 0.5)',
+            transition: 'all 0.5s ease',
+          }}
+        >
+          <ul className="flex items-center gap-4 sm:gap-6">
+            <li>
+              <Link 
+                to="/" 
+                className="text-sm sm:text-base font-bold text-gray-700 hover:text-red-600 transition-colors duration-300 cursor-pointer"
+              >
+                ホーム
+              </Link>
+            </li>
+            <li>
+              <a 
+                href="/#about" 
+                className="text-sm sm:text-base font-bold text-gray-700 hover:text-red-600 transition-colors duration-300 cursor-pointer"
+              >
+                事業紹介
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">

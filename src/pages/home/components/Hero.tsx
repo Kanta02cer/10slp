@@ -72,28 +72,65 @@ export default function Hero() {
 
       {/* Logo - スクロール時に小さく */}
       <div className={`fixed top-8 left-8 z-50 transition-all duration-500 ${scrolled ? 'scale-50 opacity-70' : 'scale-100 opacity-100'}`}>
+        <Link to="/" className="block">
+          <div 
+            className="relative group cursor-pointer"
+            style={{
+              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(254, 242, 242, 0.9) 50%, rgba(236, 253, 245, 0.95) 100%)',
+              backdropFilter: 'blur(12px)',
+              padding: scrolled ? '0.75rem 1rem' : '1.5rem 2rem',
+              borderRadius: '1.5rem',
+              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1)',
+              border: '2px solid rgba(255, 255, 255, 0.5)',
+              transition: 'all 0.5s ease',
+            }}
+          >
+            <img 
+              src={`${import.meta.env.BASE_URL}a2417c44708479b44380b56b2d1311f7.png`}
+              alt="10'sLP Logo" 
+              className={`w-auto transition-all duration-500 group-hover:drop-shadow-[0_0_20px_rgba(239,68,68,0.6)] group-hover:brightness-110 ${scrolled ? 'h-12' : 'h-24'}`}
+              style={{
+                filter: 'drop-shadow(0 4px 12px rgba(239, 68, 68, 0.2))',
+              }}
+            />
+          </div>
+        </Link>
+      </div>
+
+      {/* Navigation Menu */}
+      <nav className={`fixed top-8 right-8 z-50 transition-all duration-500 ${scrolled ? 'scale-90 opacity-80' : 'scale-100 opacity-100'}`}>
         <div 
-          className="relative group cursor-pointer"
+          className="relative group"
           style={{
             background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(254, 242, 242, 0.9) 50%, rgba(236, 253, 245, 0.95) 100%)',
             backdropFilter: 'blur(12px)',
-            padding: scrolled ? '0.75rem 1rem' : '1.5rem 2rem',
+            padding: scrolled ? '0.75rem 1rem' : '1rem 1.5rem',
             borderRadius: '1.5rem',
             boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1)',
             border: '2px solid rgba(255, 255, 255, 0.5)',
             transition: 'all 0.5s ease',
           }}
         >
-          <img 
-            src={`${import.meta.env.BASE_URL}a2417c44708479b44380b56b2d1311f7.png`}
-            alt="10'sLP Logo" 
-            className={`w-auto transition-all duration-500 group-hover:drop-shadow-[0_0_20px_rgba(239,68,68,0.6)] group-hover:brightness-110 ${scrolled ? 'h-12' : 'h-24'}`}
-            style={{
-              filter: 'drop-shadow(0 4px 12px rgba(239, 68, 68, 0.2))',
-            }}
-          />
+          <ul className="flex items-center gap-4 sm:gap-6">
+            <li>
+              <a 
+                href="#about" 
+                className="text-sm sm:text-base font-bold text-gray-700 hover:text-red-600 transition-colors duration-300 cursor-pointer"
+              >
+                事業紹介
+              </a>
+            </li>
+            <li>
+              <Link 
+                to="/recruit" 
+                className="text-sm sm:text-base font-bold text-gray-700 hover:text-emerald-600 transition-colors duration-300 cursor-pointer"
+              >
+                採用情報
+              </Link>
+            </li>
+          </ul>
         </div>
-      </div>
+      </nav>
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
