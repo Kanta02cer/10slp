@@ -1,131 +1,244 @@
 export default function About() {
+  const [isVisible, setIsVisible] = useState<Record<number, boolean>>({});
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = parseInt(entry.target.getAttribute('data-index') || '0');
+          setIsVisible(prev => ({ ...prev, [index]: true }));
+        }
+      });
+    }, observerOptions);
+
+    const elements = document.querySelectorAll('[data-scroll-item]');
+    elements.forEach(el => observer.observe(el));
+
+    return () => {
+      elements.forEach(el => observer.unobserve(el));
+    };
+  }, []);
+
   return (
-    <section id="about" className="relative py-32 overflow-hidden">
-      {/* Painted Background */}
+    <section id="about" className="relative py-16 sm:py-24 bg-white overflow-hidden">
+      {/* オシャレな背景 - ペイントと幾何学的要素 */}
       <div className="absolute inset-0 z-0">
+        {/* グラデーション背景 */}
+        <div className="absolute inset-0 bg-white"></div>
+        
+        {/* ペイント風のブロブ要素 */}
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-red-200/20 to-pink-200/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-gradient-to-br from-emerald-200/20 to-cyan-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-rose-200/15 to-orange-200/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }}></div>
+
+        {/* 幾何学的パターン */}
         <div 
-          className="absolute inset-0 opacity-80"
+          className="absolute inset-0 opacity-[0.02]"
           style={{
-            background: `
-              radial-gradient(ellipse at 15% 20%, rgba(239, 68, 68, 0.25) 0%, transparent 50%),
-              radial-gradient(ellipse at 85% 30%, rgba(251, 113, 133, 0.2) 0%, transparent 50%),
-              radial-gradient(ellipse at 50% 60%, rgba(16, 185, 129, 0.25) 0%, transparent 50%),
-              radial-gradient(ellipse at 20% 80%, rgba(20, 184, 166, 0.2) 0%, transparent 50%),
-              radial-gradient(ellipse at 90% 70%, rgba(244, 63, 94, 0.2) 0%, transparent 50%),
-              linear-gradient(180deg, #ffffff 0%, #fef2f2 30%, #ffffff 60%, #ecfdf5 100%)
-            `,
-            filter: 'blur(50px)',
+            backgroundImage: `radial-gradient(circle at 2px 2px, rgb(0,0,0) 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
           }}
-        />
-        {/* Paint Texture */}
+        ></div>
+
+        {/* グリッドパターン */}
         <div 
-          className="absolute inset-0 opacity-15"
+          className="absolute inset-0 opacity-[0.015]"
           style={{
             backgroundImage: `
-              repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(0,0,0,.02) 3px, rgba(0,0,0,.02) 6px),
-              repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0,0,0,.015) 3px, rgba(0,0,0,.015) 6px)
+              linear-gradient(to right, rgb(0,0,0) 1px, transparent 1px),
+              linear-gradient(to bottom, rgb(0,0,0) 1px, transparent 1px)
             `,
+            backgroundSize: '50px 50px'
           }}
-        />
+        ></div>
+
+        {/* 幾何学的なライン装飾 */}
+        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-gray-200/30 to-transparent opacity-20"></div>
+        <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-gray-200/30 to-transparent opacity-20"></div>
+        <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200/30 to-transparent opacity-20"></div>
+        <div className="absolute top-2/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200/30 to-transparent opacity-20"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Concept Section */}
-        <div className="text-center mb-32">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+        <div 
+          data-scroll-item
+          data-index={0}
+          className={`text-center mb-16 sm:mb-20 pb-8 border-b-2 border-gray-200 ${
+            isVisible[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-red-600 via-rose-500 to-pink-500 bg-clip-text text-transparent">01. </span>
             <span className="bg-gradient-to-r from-emerald-600 via-teal-500 to-green-500 bg-clip-text text-transparent">私たちが選ばれる3つの理由</span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-800 leading-relaxed max-w-4xl mx-auto font-medium mb-4">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto font-medium">
             なぜ、建築・不動産のプロフェッショナルが「10's LP」を選ぶのか。
           </p>
         </div>
 
         {/* 3つの理由 */}
-        <div className="mb-32">
-          <div className="grid md:grid-cols-3 gap-10">
+        <div 
+          data-scroll-item
+          data-index={1}
+          className={`mb-16 sm:mb-20 pb-12 border-b border-gray-100 ${
+            isVisible[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <div className="space-y-8">
             {/* 理由1 */}
-            <div className="group bg-gradient-to-br from-red-50 to-pink-50 rounded-3xl p-10 hover:shadow-2xl transition-all duration-300 hover:scale-105 border-4 border-white">
-              <div className="w-20 h-20 flex items-center justify-center bg-gradient-to-br from-red-500 to-pink-500 rounded-2xl mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
-                <i className="ri-flashlight-line text-4xl text-white"></i>
+            <div 
+              data-scroll-item
+              data-index={2}
+              className={`group bg-gradient-to-br from-red-50 to-pink-50 rounded-2xl p-6 sm:p-8 hover:shadow-xl transition-all duration-500 border-l-4 border-red-500 transform hover:-translate-y-2 ${
+                isVisible[2] ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+              }`}
+              style={{ transitionDelay: '100ms' }}
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center bg-gradient-to-br from-red-500 to-pink-500 rounded-xl flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                  <i className="ri-flashlight-line text-3xl sm:text-4xl text-white"></i>
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900 group-hover:text-red-600 transition-colors">10秒で自社サイトができる</h4>
+                  <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                    最短10秒でデザインカンプを作成。圧倒的なスピードで事業をスタートできます。
+                  </p>
+                </div>
               </div>
-              <h4 className="text-2xl font-bold mb-4 text-gray-900">10秒で自社サイトができる</h4>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                独自のシステムにより、最短10秒でデザインカンプを作成。圧倒的なスピードで事業をスタートできます。
-              </p>
             </div>
 
             {/* 理由2 */}
-            <div className="group bg-gradient-to-br from-rose-50 to-orange-50 rounded-3xl p-10 hover:shadow-2xl transition-all duration-300 hover:scale-105 border-4 border-white">
-              <div className="w-20 h-20 flex items-center justify-center bg-gradient-to-br from-rose-500 to-orange-500 rounded-2xl mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
-                <i className="ri-team-line text-4xl text-white"></i>
+            <div 
+              data-scroll-item
+              data-index={3}
+              className={`group bg-gradient-to-br from-rose-50 to-orange-50 rounded-2xl p-6 sm:p-8 hover:shadow-xl transition-all duration-500 border-l-4 border-rose-500 transform hover:-translate-y-2 ${
+                isVisible[3] ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+              }`}
+              style={{ transitionDelay: '200ms' }}
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center bg-gradient-to-br from-rose-500 to-orange-500 rounded-xl flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                  <i className="ri-team-line text-3xl sm:text-4xl text-white"></i>
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900 group-hover:text-rose-600 transition-colors">プロのマーケティングチームが担当する</h4>
+                  <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                    プロのマーケティングチームがトレンドを分析し、売れる構成を組み立てます。
+                  </p>
+                </div>
               </div>
-              <h4 className="text-2xl font-bold mb-4 text-gray-900">プロのマーケティングチームが担当する</h4>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                建築・塗装業界の相場感や顧客動向を熟知したプロのマーケティングチームが、売れる構成を組み立てます。
-              </p>
             </div>
 
             {/* 理由3 */}
-            <div className="group bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-10 hover:shadow-2xl transition-all duration-300 hover:scale-105 border-4 border-white">
-              <div className="w-20 h-20 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
-                <i className="ri-edit-box-line text-4xl text-white"></i>
+            <div 
+              data-scroll-item
+              data-index={4}
+              className={`group bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-6 sm:p-8 hover:shadow-xl transition-all duration-500 border-l-4 border-emerald-500 transform hover:-translate-y-2 ${
+                isVisible[4] ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+              }`}
+              style={{ transitionDelay: '300ms' }}
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                  <i className="ri-edit-box-line text-3xl sm:text-4xl text-white"></i>
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900 group-hover:text-emerald-600 transition-colors">
+                    CMS<sup className="text-xs text-gray-500">※</sup>が永続的に無料で利用できる
+                  </h4>
+                  <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-3">
+                    オプション付き利用の場合は、納品後も自社で簡単に修正・更新が可能です。
+                  </p>
+                  <p className="text-sm text-gray-500 leading-relaxed">
+                    ※コンテンツの量によっては追加料金がかかります。
+                  </p>
+                </div>
               </div>
-              <h4 className="text-2xl font-bold mb-4 text-gray-900">
-                CMS<sup className="text-xs text-gray-500">※</sup>が永続的に無料で利用できる
-              </h4>
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                オプション付き利用の場合は、CMS（コンテンツ管理システム）が永続的に無料でご利用いただけます。
-              </p>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                ※コンテンツの量によっては追加料金がかかります。
-              </p>
             </div>
           </div>
         </div>
 
         {/* サービス利用の流れ */}
-        <div className="mb-32">
-          <h3 className="text-5xl font-bold text-center mb-20 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-            サービス利用の流れ
-          </h3>
-          <div className="relative">
-            {/* 接続線 */}
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-red-300 via-rose-300 to-emerald-300 transform -translate-y-1/2 z-0"></div>
-            
-            <div className="grid md:grid-cols-3 gap-10 relative z-10">
-              {/* STEP 1 */}
-              <div className="bg-white rounded-3xl p-10 shadow-xl border-4 border-red-200 hover:border-red-400 transition-all duration-300">
-                <div className="w-24 h-24 flex items-center justify-center bg-gradient-to-br from-red-500 to-pink-500 rounded-full mb-6 mx-auto shadow-lg">
-                  <span className="text-4xl font-bold text-white">1</span>
-                </div>
-                <h4 className="text-3xl font-bold mb-4 text-center text-gray-900">ヒアリング</h4>
-                <p className="text-lg text-gray-700 text-center mb-4 font-bold">30分 / オンライン可</p>
-                <p className="text-lg text-gray-700 leading-relaxed">
+        <div 
+          data-scroll-item
+          data-index={5}
+          className={`mb-16 sm:mb-20 pb-12 border-b border-gray-100 ${
+            isVisible[5] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <div className="flex items-center justify-center gap-3 mb-12">
+            <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-emerald-400 to-teal-400 rounded-lg">
+              <i className="ri-flow-chart-line text-xl text-white"></i>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              サービス利用の流れ
+            </h3>
+          </div>
+          <div className="space-y-8">
+            {/* STEP 1 */}
+            <div 
+              data-scroll-item
+              data-index={6}
+              className={`flex items-start gap-6 group bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-500 border-l-4 border-red-500 transform hover:-translate-y-2 ${
+                isVisible[6] ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+              }`}
+              style={{ transitionDelay: '100ms' }}
+            >
+              <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center bg-gradient-to-br from-red-500 to-pink-500 rounded-xl flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <span className="text-xl sm:text-2xl font-bold text-white">1</span>
+              </div>
+              <div className="flex-1 pt-1">
+                <h4 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900 group-hover:text-red-600 transition-colors">ヒアリング</h4>
+                <p className="text-base sm:text-lg text-gray-600 mb-3 font-bold">30分 / オンライン可</p>
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                   企業情報や素材を共有いただき、事業の本質を深掘りします。
                 </p>
               </div>
+            </div>
 
-              {/* STEP 2 */}
-              <div className="bg-white rounded-3xl p-10 shadow-xl border-4 border-rose-200 hover:border-rose-400 transition-all duration-300">
-                <div className="w-24 h-24 flex items-center justify-center bg-gradient-to-br from-rose-500 to-orange-500 rounded-full mb-6 mx-auto shadow-lg">
-                  <span className="text-4xl font-bold text-white">2</span>
-                </div>
-                <h4 className="text-3xl font-bold mb-4 text-center text-gray-900">デザイン・フレーム共有</h4>
-                <p className="text-lg text-gray-700 text-center mb-4 font-bold">最短10秒で作成</p>
-                <p className="text-lg text-gray-700 leading-relaxed">
+            {/* STEP 2 */}
+            <div 
+              data-scroll-item
+              data-index={7}
+              className={`flex items-start gap-6 group bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-500 border-l-4 border-rose-500 transform hover:-translate-y-2 ${
+                isVisible[7] ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+              }`}
+              style={{ transitionDelay: '200ms' }}
+            >
+              <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center bg-gradient-to-br from-rose-500 to-orange-500 rounded-xl flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <span className="text-xl sm:text-2xl font-bold text-white">2</span>
+              </div>
+              <div className="flex-1 pt-1">
+                <h4 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900 group-hover:text-rose-600 transition-colors">デザイン・フレーム共有</h4>
+                <p className="text-base sm:text-lg text-gray-600 mb-3 font-bold">最短10秒で作成</p>
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                   ヒアリングから最短10秒でベースを作成。フィードバックをもとにブラッシュアップ。
                 </p>
               </div>
+            </div>
 
-              {/* STEP 3 */}
-              <div className="bg-white rounded-3xl p-10 shadow-xl border-4 border-emerald-200 hover:border-emerald-400 transition-all duration-300">
-                <div className="w-24 h-24 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full mb-6 mx-auto shadow-lg">
-                  <span className="text-4xl font-bold text-white">3</span>
-                </div>
-                <h4 className="text-3xl font-bold mb-4 text-center text-gray-900">最終納品</h4>
-                <p className="text-lg text-gray-700 text-center mb-4 font-bold">目安2営業日</p>
-                <p className="text-lg text-gray-700 leading-relaxed">
+            {/* STEP 3 */}
+            <div 
+              data-scroll-item
+              data-index={8}
+              className={`flex items-start gap-6 group bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-500 border-l-4 border-emerald-500 transform hover:-translate-y-2 ${
+                isVisible[8] ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+              }`}
+              style={{ transitionDelay: '300ms' }}
+            >
+              <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <span className="text-xl sm:text-2xl font-bold text-white">3</span>
+              </div>
+              <div className="flex-1 pt-1">
+                <h4 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900 group-hover:text-emerald-600 transition-colors">最終納品</h4>
+                <p className="text-base sm:text-lg text-gray-600 mb-3 font-bold">目安2営業日</p>
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                   すぐに運用可能なLPをお届けします。
                 </p>
               </div>
@@ -134,37 +247,48 @@ export default function About() {
         </div>
 
         {/* ご準備いただくもの */}
-        <div className="mt-32">
-          <h3 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-            ご準備いただくもの
-          </h3>
-          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-12 border-4 border-white shadow-xl">
+        <div 
+          data-scroll-item
+          data-index={9}
+          className={`mt-12 sm:mt-16 pt-12 border-t-2 border-gray-200 ${
+            isVisible[9] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <div className="flex items-center justify-center gap-3 mb-12">
+            <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-emerald-400 to-teal-400 rounded-lg">
+              <i className="ri-file-list-3-line text-xl text-white"></i>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              ご準備いただくもの
+            </h3>
+          </div>
+          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-6 sm:p-8 sm:p-12 border-l-4 border-emerald-500 shadow-lg">
             <div className="space-y-6 max-w-4xl mx-auto">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex-shrink-0 shadow-lg">
-                  <i className="ri-building-line text-2xl text-white"></i>
+              <div className="flex items-start gap-4 group">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <i className="ri-building-line text-xl sm:text-2xl text-white"></i>
                 </div>
-                <div>
-                  <h4 className="text-2xl font-bold mb-2 text-gray-900">会社マスタ情報</h4>
-                  <p className="text-lg text-gray-700">企業名・事業内容・代表者名</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-rose-500 to-orange-500 rounded-full flex-shrink-0 shadow-lg">
-                  <i className="ri-user-smile-line text-2xl text-white"></i>
-                </div>
-                <div>
-                  <h4 className="text-2xl font-bold mb-2 text-gray-900">担当者様の顔写真</h4>
-                  <p className="text-lg text-gray-700">必要に応じて</p>
+                <div className="flex-1">
+                  <h4 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900 group-hover:text-emerald-600 transition-colors">会社マスタ情報</h4>
+                  <p className="text-base sm:text-lg text-gray-700">企業名・事業内容・代表者名</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-red-500 to-pink-500 rounded-full flex-shrink-0 shadow-lg">
-                  <i className="ri-image-line text-2xl text-white"></i>
+              <div className="flex items-start gap-4 group">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-gradient-to-br from-rose-500 to-orange-500 rounded-lg flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <i className="ri-user-smile-line text-xl sm:text-2xl text-white"></i>
                 </div>
-                <div>
-                  <h4 className="text-2xl font-bold mb-2 text-gray-900">実際の仕事の様子がわかる写真や素材</h4>
-                  <p className="text-lg text-gray-700">あればあるほど精度が上がります</p>
+                <div className="flex-1">
+                  <h4 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900 group-hover:text-rose-600 transition-colors">担当者様の顔写真</h4>
+                  <p className="text-base sm:text-lg text-gray-700">必要に応じて</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4 group">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-gradient-to-br from-red-500 to-pink-500 rounded-lg flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <i className="ri-image-line text-xl sm:text-2xl text-white"></i>
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900 group-hover:text-red-600 transition-colors">実際の仕事の様子がわかる写真や素材</h4>
+                  <p className="text-base sm:text-lg text-gray-700">あればあるほど精度が上がります</p>
                 </div>
               </div>
             </div>
