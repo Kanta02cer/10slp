@@ -295,73 +295,139 @@ export default function Services() {
               href="https://crosslab.readdy.co"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
             >
-              <div className="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
-                株式会社CROSSLAB
+              <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                <img
+                  src={`https://image.thum.io/get/width/800/crop/800/allowJPG/wait/2/noanimate/https://crosslab.readdy.co`}
+                  alt="株式会社CROSSLAB トップ画面"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
-              <div className="text-sm text-purple-600 break-all">crosslab.readdy.co</div>
+              <div className="p-5">
+                <div className="text-lg font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors">
+                  株式会社CROSSLAB
+                </div>
+                <div className="text-sm text-purple-600 break-all">crosslab.readdy.co</div>
+              </div>
             </a>
 
             <a
               href="https://komuten-osaka-fc.readdy.co"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
             >
-              <div className="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
-                株式会社万代
+              <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                <img
+                  src={`https://image.thum.io/get/width/800/crop/800/allowJPG/wait/2/noanimate/https://komuten-osaka-fc.readdy.co`}
+                  alt="株式会社万代 トップ画面"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
-              <div className="text-sm text-purple-600 break-all">komuten-osaka-fc.readdy.co</div>
+              <div className="p-5">
+                <div className="text-lg font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors">
+                  株式会社万代
+                </div>
+                <div className="text-sm text-purple-600 break-all">komuten-osaka-fc.readdy.co</div>
+              </div>
             </a>
 
             <a
               href="https://banken-recruit.readdy.co"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
             >
-              <div className="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
-                株式会社万代建設
+              <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                <img
+                  src={`https://image.thum.io/get/width/800/crop/800/allowJPG/wait/2/noanimate/https://banken-recruit.readdy.co`}
+                  alt="株式会社万代建設 トップ画面"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
-              <div className="text-sm text-purple-600 break-all">banken-recruit.readdy.co</div>
+              <div className="p-5">
+                <div className="text-lg font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors">
+                  株式会社万代建設
+                </div>
+                <div className="text-sm text-purple-600 break-all">banken-recruit.readdy.co</div>
+              </div>
             </a>
 
             <a
               href="https://pagurisutaclub.readdy.co"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
             >
-              <div className="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
-                PAGRISTA CLUB Pullover Hoodie
+              <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                <img
+                  src={`https://image.thum.io/get/width/800/crop/800/allowJPG/wait/2/noanimate/https://pagurisutaclub.readdy.co`}
+                  alt="PAGRISTA CLUB Pullover Hoodie トップ画面"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
-              <div className="text-xs text-gray-600 mb-1">（ゴルフファッションブランド）</div>
-              <div className="text-sm text-purple-600 break-all">pagurisutaclub.readdy.co</div>
+              <div className="p-5">
+                <div className="text-lg font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors">
+                  PAGRISTA CLUB Pullover Hoodie
+                </div>
+                <div className="text-xs text-gray-600 mb-1">（ゴルフファッションブランド）</div>
+                <div className="text-sm text-purple-600 break-all">pagurisutaclub.readdy.co</div>
+              </div>
             </a>
 
             <a
               href="https://bandai-recruit.readdy.co"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
             >
-              <div className="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
-                株式会社万代（採用情報）
+              <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                <img
+                  src={`https://image.thum.io/get/width/800/crop/800/allowJPG/wait/2/noanimate/https://bandai-recruit.readdy.co`}
+                  alt="株式会社万代（採用情報） トップ画面"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
-              <div className="text-sm text-purple-600 break-all">bandai-recruit.readdy.co</div>
+              <div className="p-5">
+                <div className="text-lg font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors">
+                  株式会社万代（採用情報）
+                </div>
+                <div className="text-sm text-purple-600 break-all">bandai-recruit.readdy.co</div>
+              </div>
             </a>
 
             <a
               href="https://banken-paint.readdy.co"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
             >
-              <div className="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
-                BANKEN塗装
+              <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                <img
+                  src={`https://image.thum.io/get/width/800/crop/800/allowJPG/wait/2/noanimate/https://banken-paint.readdy.co`}
+                  alt="BANKEN塗装 トップ画面"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
-              <div className="text-sm text-purple-600 break-all">banken-paint.readdy.co</div>
+              <div className="p-5">
+                <div className="text-lg font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors">
+                  BANKEN塗装
+                </div>
+                <div className="text-sm text-purple-600 break-all">banken-paint.readdy.co</div>
+              </div>
             </a>
           </div>
         </div>
