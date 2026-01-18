@@ -1,4 +1,28 @@
 export default function Requirements() {
+  const [isVisible, setIsVisible] = useState<Record<number, boolean>>({});
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = parseInt(entry.target.getAttribute('data-index') || '0');
+          setIsVisible(prev => ({ ...prev, [index]: true }));
+        }
+      });
+    }, observerOptions);
+
+    const elements = document.querySelectorAll('[data-scroll-item]');
+    elements.forEach(el => observer.observe(el));
+
+    return () => {
+      elements.forEach(el => observer.unobserve(el));
+    };
+  }, []);
   const requirements = [
     {
       icon: 'ri-robot-2-line',
@@ -78,6 +102,15 @@ export default function Requirements() {
     }
   ];
 
+  const jobContents = [
+    { text: 'ゼロイチでLP制作' },
+    { text: 'お客様との接客' },
+    { text: 'TOMOSUBAラウンジでのコミュニケーター（コミュマネ）' },
+    { text: 'サイトの編集・修正（CMS）' },
+    { text: 'サイトデザイン' },
+    { text: 'デザインカンプ制作' }
+  ];
+
   const benefits = [
     {
       icon: 'ri-briefcase-line',
@@ -100,71 +133,154 @@ export default function Requirements() {
   ];
 
   return (
-    <section id="requirements" className="py-32 bg-gradient-to-br from-pink-50 via-purple-50 via-cyan-50 to-white relative overflow-hidden">
-      {/* 可愛い背景装飾 */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-pink-300 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 rounded-full bg-purple-300 blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-36 h-36 rounded-full bg-cyan-300 blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+    <section id="requirements" className="py-24 sm:py-32 relative overflow-hidden">
+      {/* オシャレな背景 */}
+      <div className="absolute inset-0 z-0">
+        {/* グラデーション背景 */}
+        <div className="absolute inset-0 bg-gradient-to-br from-rose-50 via-pink-50 via-purple-50 to-cyan-50"></div>
+        
+        {/* パターンオーバーレイ */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, rgb(0,0,0) 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
+          }}
+        ></div>
+
+        {/* アニメーション要素 */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-rose-300/30 to-pink-300/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-purple-300/30 to-cyan-300/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-pink-200/20 to-rose-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }}></div>
+
+        {/* グリッドパターン */}
+        <div 
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgb(0,0,0) 1px, transparent 1px),
+              linear-gradient(to bottom, rgb(0,0,0) 1px, transparent 1px)
+            `,
+          backgroundSize: '50px 50px'
+          }}
+        ></div>
       </div>
 
-      {/* 星やハートの装飾 */}
-      <div className="absolute top-32 right-20 text-4xl animate-bounce" style={{ animationDuration: '3s' }}>✨</div>
-      <div className="absolute bottom-40 left-20 text-5xl animate-pulse">💝</div>
-      <div className="absolute top-64 left-32 text-3xl animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>⭐</div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         {/* タイトル */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-red-600 via-pink-500 to-purple-600 bg-clip-text text-transparent">
             募集要項
           </h2>
-          <p className="text-xl text-gray-700 font-medium">
+          <p className="text-lg sm:text-xl text-gray-700 font-medium">
             学生インターン・主婦の方も大歓迎！✨<br />
             在宅ワーク・フレックス対応で、あなたのペースで成長できます
           </p>
         </div>
 
         {/* 必須条件 */}
-        <div className="mb-20">
-          <h3 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">
+        <div className="mb-16 sm:mb-20">
+          <h3 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-900">
             📋 必須条件
           </h3>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
             {requirements.map((item, index) => (
-              <div key={index} className="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-pink-200 text-center transform hover:scale-105">
-                <div className={`w-24 h-24 flex items-center justify-center mx-auto mb-6 bg-gradient-to-br ${item.gradient} rounded-full shadow-xl group-hover:rotate-12 transition-transform duration-300`}>
-                  <i className={`${item.icon} text-5xl text-white`}></i>
+              <div 
+                key={index} 
+                data-scroll-item
+                data-index={index}
+                className={`bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-rose-200 text-center transform hover:-translate-y-2 ${
+                  isVisible[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
+                <div className={`w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mx-auto mb-4 sm:mb-6 bg-gradient-to-br ${item.gradient} rounded-xl shadow-lg transform group-hover:scale-110 transition-transform duration-300 hover:rotate-6`}>
+                  <i className={`${item.icon} text-3xl sm:text-4xl text-white`}></i>
                 </div>
-                <h4 className="text-2xl font-bold text-gray-900 mb-2 leading-tight">{item.title}</h4>
-                <p className="text-lg text-gray-700 font-medium">{item.subtitle}</p>
+                <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 leading-tight group-hover:text-rose-600 transition-colors">{item.title}</h4>
+                <p className="text-base sm:text-lg text-gray-700">{item.subtitle}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* 採用までの流れ */}
-        <div className="mb-20">
-          <h3 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+        <div className="mb-16 sm:mb-20">
+          <h3 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-900">
             🌈 採用までの流れ
           </h3>
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {flow.map((item, index) => (
-              <div key={index} className="relative">
-                {/* 接続線 */}
-                {index < flow.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 right-0 w-full h-1 bg-gradient-to-r from-pink-300 to-purple-300 transform -translate-y-1/2 z-0" style={{ width: 'calc(100% + 1.5rem)' }}></div>
-                )}
-                
-                <div className="relative bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-purple-200 text-center transform hover:scale-105">
-                  <div className={`w-20 h-20 flex items-center justify-center mx-auto mb-4 bg-gradient-to-br ${item.gradient} rounded-full shadow-xl relative z-10`}>
-                    <span className="text-3xl font-bold text-white">{item.step}</span>
+              <div 
+                key={index} 
+                data-scroll-item
+                data-index={index + 10}
+                className={`bg-white/80 backdrop-blur-sm rounded-2xl p-5 sm:p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-purple-200 text-center transform hover:-translate-y-2 hover:scale-105 group ${
+                  isVisible[index + 10] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
+                <div className={`w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-3 sm:mb-4 bg-gradient-to-br ${item.gradient} rounded-full shadow-lg transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-300`}>
+                  <span className="text-xl sm:text-2xl font-bold text-white">{item.step}</span>
+                </div>
+                <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">{item.title}</h4>
+                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: item.description }}></p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* オフィス情報（強調） */}
+        <div 
+          data-scroll-item
+          data-index={50}
+          className={`mb-16 sm:mb-20 bg-gradient-to-r from-emerald-50 via-cyan-50 to-blue-50 rounded-3xl p-8 sm:p-10 border-4 border-emerald-300 shadow-2xl ${
+            isVisible[50] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <div className="text-center">
+            <div className="w-20 h-20 flex items-center justify-center mx-auto mb-6 bg-gradient-to-br from-emerald-400 to-cyan-400 rounded-2xl shadow-lg">
+              <i className="ri-building-4-line text-4xl text-white"></i>
+            </div>
+            <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              🏢 オフィス
+            </h3>
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg max-w-2xl mx-auto">
+              <h4 className="text-2xl sm:text-3xl font-bold text-emerald-700 mb-3">
+                四ツ谷TOMOSUBA
+              </h4>
+              <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
+                〒102-0083<br />
+                東京都千代田区麹町５丁目3番地6 B1
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* 業務内容（強調） */}
+        <div 
+          data-scroll-item
+          data-index={60}
+          className={`mb-16 sm:mb-20 ${
+            isVisible[60] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <h3 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-900">
+            💼 業務内容
+          </h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
+            {jobContents.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 sm:p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-emerald-200 transform hover:-translate-y-2 group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-emerald-400 to-cyan-400 rounded-lg shadow-md group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                    <span className="text-white font-bold">{index + 1}</span>
                   </div>
-                  <div className={`w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-gradient-to-br ${item.gradient} rounded-2xl shadow-lg`}>
-                    <i className={`${item.icon} text-3xl text-white`}></i>
-                  </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h4>
-                  <p className="text-sm text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: item.description }}></p>
+                  <p className="text-base sm:text-lg font-medium text-gray-900 group-hover:text-emerald-600 transition-colors">
+                    {item.text}
+                  </p>
                 </div>
               </div>
             ))}
@@ -172,51 +288,124 @@ export default function Requirements() {
         </div>
 
         {/* 労働条件 */}
-        <div className="mb-20">
-          <h3 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+        <div className="mb-16 sm:mb-20">
+          <h3 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-900">
             💼 労働条件
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {workingConditions.map((item, index) => (
-              <div key={index} className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-cyan-200 text-center transform hover:scale-105">
-                <div className={`w-20 h-20 flex items-center justify-center mx-auto mb-6 bg-gradient-to-br ${item.gradient} rounded-full shadow-xl`}>
-                  <i className={`${item.icon} text-4xl text-white`}></i>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {workingConditions.map((item, index) => {
+              // 報酬を強調表示
+              if (item.title === '報酬') {
+                return (
+                  <div 
+                    key={index} 
+                    data-scroll-item
+                    data-index={index + 20}
+                    className={`bg-gradient-to-br from-yellow-50 to-orange-50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border-4 border-yellow-300 hover:border-orange-400 text-center transform hover:-translate-y-2 group ${
+                      isVisible[index + 20] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    }`}
+                    style={{ transitionDelay: `${index * 100}ms` }}
+                  >
+                    <div className={`w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mx-auto mb-4 sm:mb-6 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-xl shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                      <i className={`${item.icon} text-3xl sm:text-4xl text-white`}></i>
+                    </div>
+                    <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-orange-600 transition-colors">{item.title}</h4>
+                    <div className="space-y-2">
+                      <p className="text-2xl sm:text-3xl font-bold text-orange-600">時給：1,500円</p>
+                      <p className="text-xl sm:text-2xl font-bold text-orange-600">インセンティブ：20％</p>
+                    </div>
+                  </div>
+                );
+              }
+              
+              // 勤務場所を強調表示
+              if (item.title === '勤務場所') {
+                return (
+                  <div 
+                    key={index} 
+                    data-scroll-item
+                    data-index={index + 20}
+                    className={`bg-gradient-to-br from-emerald-50 to-cyan-50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border-4 border-emerald-300 hover:border-cyan-400 text-center transform hover:-translate-y-2 group ${
+                      isVisible[index + 20] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    }`}
+                    style={{ transitionDelay: `${index * 100}ms` }}
+                  >
+                    <div className={`w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mx-auto mb-4 sm:mb-6 bg-gradient-to-br from-emerald-400 to-cyan-400 rounded-xl shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                      <i className={`${item.icon} text-3xl sm:text-4xl text-white`}></i>
+                    </div>
+                    <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-emerald-600 transition-colors">{item.title}</h4>
+                    <div className="bg-white/80 rounded-xl p-4">
+                      <p className="text-lg font-bold text-emerald-700 mb-2">四ツ谷TOMOSUBA</p>
+                      <p className="text-sm text-gray-700 leading-relaxed">〒102-0083<br />東京都千代田区麹町５丁目3番地6 B1</p>
+                    </div>
+                  </div>
+                );
+              }
+
+              // その他の労働条件
+              return (
+                <div 
+                  key={index} 
+                  data-scroll-item
+                  data-index={index + 20}
+                  className={`bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-cyan-200 text-center transform hover:-translate-y-2 group ${
+                    isVisible[index + 20] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  }`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  <div className={`w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mx-auto mb-4 sm:mb-6 bg-gradient-to-br ${item.gradient} rounded-xl shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                    <i className={`${item.icon} text-3xl sm:text-4xl text-white`}></i>
+                  </div>
+                  <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-cyan-600 transition-colors">{item.title}</h4>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: item.content }}></p>
                 </div>
-                <h4 className="text-xl font-bold text-gray-900 mb-4">{item.title}</h4>
-                <p className="text-base text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: item.content }}></p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
         {/* 得られるもの */}
-        <div>
-          <h3 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">
+        <div className="mb-16 sm:mb-20">
+          <h3 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-900">
             🎁 こんなことができます
           </h3>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
             {benefits.map((item, index) => (
-              <div key={index} className="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-yellow-200 text-center transform hover:scale-105">
-                <div className={`w-24 h-24 flex items-center justify-center mx-auto mb-6 bg-gradient-to-br ${item.gradient} rounded-full shadow-xl group-hover:rotate-12 transition-transform duration-300`}>
-                  <i className={`${item.icon} text-5xl text-white`}></i>
+              <div 
+                key={index} 
+                data-scroll-item
+                data-index={index + 30}
+                className={`bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-yellow-200 text-center transform hover:-translate-y-2 group ${
+                  isVisible[index + 30] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
+                <div className={`w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mx-auto mb-4 sm:mb-6 bg-gradient-to-br ${item.gradient} rounded-xl shadow-lg transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300`}>
+                  <i className={`${item.icon} text-3xl sm:text-4xl text-white`}></i>
                 </div>
-                <h4 className="text-2xl font-bold text-gray-900 mb-2 leading-tight">{item.title}</h4>
-                <p className="text-lg text-gray-700 font-medium">{item.subtitle}</p>
+                <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 leading-tight group-hover:text-yellow-600 transition-colors">{item.title}</h4>
+                <p className="text-base sm:text-lg text-gray-700">{item.subtitle}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* おすすめメッセージ */}
-        <div className="mt-20 bg-gradient-to-r from-pink-100 via-purple-100 to-cyan-100 rounded-3xl p-10 border-4 border-pink-200 shadow-xl">
+        <div 
+          data-scroll-item
+          data-index={40}
+          className={`mt-12 sm:mt-16 bg-gradient-to-r from-rose-100/90 via-pink-100/90 to-purple-100/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-10 border-2 border-rose-300/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] ${
+            isVisible[40] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="text-center">
-            <div className="text-6xl mb-4">💖</div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
+            <div className="text-4xl sm:text-5xl mb-3 sm:mb-4 animate-pulse">💖</div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
               学生さん・主婦の方、大歓迎！
             </h3>
-            <p className="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
-              学業や家事で忙しい方でも、あなたのペースで無理なく活動できます。<br />
-              在宅ワークOK・フレックス対応で、ライフスタイルに合わせて働けます。<br />
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
+              学業や家事で忙しい方でも、あなたのペースで無理なく活動できます。<br className="hidden sm:block" />
+              在宅ワークOK・フレックス対応で、ライフスタイルに合わせて働けます。<br className="hidden sm:block" />
               経験がなくても大丈夫！丁寧にサポートいたします。✨
             </p>
           </div>

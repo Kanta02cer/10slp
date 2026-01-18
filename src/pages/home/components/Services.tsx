@@ -187,10 +187,7 @@ export default function Services() {
                 <div className="flex items-start gap-3">
                   <i className="ri-check-line text-emerald-500 text-xl mt-1"></i>
                   <div>
-                    <div className="font-bold text-gray-900">デザインカンプ作成</div>
-                    <div className="text-sm text-emerald-600 font-bold mt-1">
-                      デザインカンプまで当日中（最短10秒）に作成可能！
-                    </div>
+                    <div className="font-bold text-gray-900">10秒カンプ作成※当日中にカンプ納品可能</div>
                   </div>
                 </div>
               </div>
@@ -268,7 +265,7 @@ export default function Services() {
                   <td className="px-6 py-4 text-center">3回</td>
                 </tr>
                 <tr className="hover:bg-gray-50">
-                  <td className="px-6 py-4 font-medium text-gray-900">デザインカンプ作成</td>
+                  <td className="px-6 py-4 font-medium text-gray-900">10秒カンプ作成<br/><span className="text-xs text-gray-600">※当日中にカンプ納品可能</span></td>
                   <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
                   <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
                   <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
@@ -283,8 +280,8 @@ export default function Services() {
                 </tr>
                 <tr className="hover:bg-gray-50">
                   <td className="px-6 py-4 font-medium text-gray-900">ページ数</td>
-                  <td className="px-6 py-4 text-center">固定5セクション</td>
-                  <td className="px-6 py-4 text-center">自由構成</td>
+                  <td className="px-6 py-4 text-center">ペライチ</td>
+                  <td className="px-6 py-4 text-center">ペライチ</td>
                   <td className="px-6 py-4 text-center">最大2ページ</td>
                   <td className="px-6 py-4 text-center">最大5ページ</td>
                 </tr>
@@ -310,7 +307,7 @@ export default function Services() {
                 <div className="text-2xl text-gray-700 mb-2">規模目安</div>
                 <div className="text-lg text-gray-600 mb-4">A4換算 約3枚分</div>
                 <div className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-4">
-                  33万円
+                  330,000円
                 </div>
                 <div className="text-sm text-gray-600">（税込）</div>
               </div>
@@ -323,7 +320,7 @@ export default function Services() {
                 <div className="text-2xl text-gray-700 mb-2">規模目安</div>
                 <div className="text-lg text-gray-600 mb-4">A4換算 約8枚分</div>
                 <div className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-4">
-                  66万円
+                  660,000円
                 </div>
                 <div className="text-sm text-gray-600">（税込）</div>
             </div>
@@ -339,7 +336,7 @@ export default function Services() {
                 <div className="text-2xl text-gray-700 mb-2">規模目安</div>
                 <div className="text-lg text-gray-600 mb-4">A4換算 約10枚分〜</div>
                 <div className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-4">
-                  110万円
+                  1,100,000円
                 </div>
                 <div className="text-sm text-gray-600">（税込）</div>
               </div>
@@ -360,9 +357,9 @@ export default function Services() {
               <thead>
                 <tr className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white">
                   <th className="px-6 py-4 text-left font-bold">機能</th>
-                  <th className="px-6 py-4 text-center font-bold">ライト<br/>33万円</th>
-                  <th className="px-6 py-4 text-center font-bold">ミドル<br/>66万円</th>
-                  <th className="px-6 py-4 text-center font-bold">エンタープライズ<br/>110万円</th>
+                  <th className="px-6 py-4 text-center font-bold">ライト<br/>330,000円</th>
+                  <th className="px-6 py-4 text-center font-bold">ミドル<br/>660,000円</th>
+                  <th className="px-6 py-4 text-center font-bold">エンタープライズ<br/>1,100,000円</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -388,25 +385,19 @@ export default function Services() {
                   <td className="px-6 py-4 font-medium text-gray-900">修正回数</td>
                   <td className="px-6 py-4 text-center">3回</td>
                   <td className="px-6 py-4 text-center">3回</td>
-                  <td className="px-6 py-4 text-center">3回</td>
+                  <td className="px-6 py-4 text-center">無制限（審査あり）</td>
                 </tr>
                 <tr className="hover:bg-gray-50">
-                  <td className="px-6 py-4 font-medium text-gray-900">デザインカンプ作成</td>
+                  <td className="px-6 py-4 font-medium text-gray-900">10秒カンプ作成<br/><span className="text-xs text-gray-600">※当日中にカンプ納品可能</span></td>
                   <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
                   <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
                   <td className="px-6 py-4 text-center"><i className="ri-check-line text-emerald-500 text-xl"></i></td>
                 </tr>
                 <tr className="hover:bg-gray-50">
                   <td className="px-6 py-4 font-medium text-gray-900">CMS対応</td>
-                  <td className="px-6 py-4 text-center">-<br/><span className="text-sm text-gray-600">(オプション +30万円)</span></td>
-                  <td className="px-6 py-4 text-center">-<br/><span className="text-sm text-gray-600">(オプション +30万円)</span></td>
-                  <td className="px-6 py-4 text-center">-<br/><span className="text-sm text-gray-600">(オプション +30万円)</span></td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="px-6 py-4 font-medium text-gray-900">ページ形式</td>
-                  <td className="px-6 py-4 text-center">複数ページ構成</td>
-                  <td className="px-6 py-4 text-center">複数ページ構成</td>
-                  <td className="px-6 py-4 text-center">複数ページ構成</td>
+                  <td className="px-6 py-4 text-center">-<br/><span className="text-sm text-gray-600">(オプション +300,000円)</span></td>
+                  <td className="px-6 py-4 text-center">-<br/><span className="text-sm text-gray-600">(オプション +300,000円)</span></td>
+                  <td className="px-6 py-4 text-center">-<br/><span className="text-sm text-gray-600">(オプション +300,000円)</span></td>
                 </tr>
               </tbody>
             </table>
