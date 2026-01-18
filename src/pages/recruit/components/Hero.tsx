@@ -52,7 +52,7 @@ export default function Hero() {
       <div className="absolute top-8 left-8 z-20">
         <a href="/" className="bg-white/95 backdrop-blur-sm px-6 py-4 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer block">
           <img 
-            src="https://static.readdy.ai/image/b5df369270f37f8723a252918bb84c70/a2417c44708479b44380b56b2d1311f7.png" 
+            src={`${import.meta.env.BASE_URL}a2417c44708479b44380b56b2d1311f7.png`}
             alt="10'sLP Logo" 
             className="h-16 w-auto"
           />

@@ -13,7 +13,7 @@ export default function Footer() {
           <div>
             <div className="mb-6">
               <img 
-                src="https://static.readdy.ai/image/b5df369270f37f8723a252918bb84c70/a2417c44708479b44380b56b2d1311f7.png" 
+                src={`${import.meta.env.BASE_URL}a2417c44708479b44380b56b2d1311f7.png`}
                 alt="10'sLP Logo" 
                 className="h-16 w-auto"
               />

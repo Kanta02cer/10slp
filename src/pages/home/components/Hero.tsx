@@ -85,7 +85,7 @@ export default function Hero() {
           }}
         >
           <img 
-            src="/a2417c44708479b44380b56b2d1311f7.png" 
+            src={`${import.meta.env.BASE_URL}a2417c44708479b44380b56b2d1311f7.png`}
             alt="10'sLP Logo" 
             className={`w-auto transition-all duration-500 group-hover:drop-shadow-[0_0_20px_rgba(239,68,68,0.6)] group-hover:brightness-110 ${scrolled ? 'h-12' : 'h-24'}`}
             style={{
