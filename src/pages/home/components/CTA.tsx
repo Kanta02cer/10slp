@@ -117,12 +117,12 @@ export default function CTA() {
           <div className="text-center lg:text-left">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                10秒で形にする
+                「サービスが伝わらない、<br className="hidden md:block" />イメージを伝えたい」
               </span>
             </h2>
 
             <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
-              まずは貴社の課題をお聞かせください
+              その想い、私たちが10秒で形にします。
             </p>
             
             <div className="bg-gradient-to-r from-rose-50 to-orange-50 rounded-xl p-4 sm:p-5 mb-8 border-2 border-rose-200">

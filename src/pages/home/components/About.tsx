@@ -47,11 +47,11 @@ export default function About() {
             {/* 理由1 */}
             <div className="group bg-gradient-to-br from-red-50 to-pink-50 rounded-3xl p-10 hover:shadow-2xl transition-all duration-300 hover:scale-105 border-4 border-white">
               <div className="w-20 h-20 flex items-center justify-center bg-gradient-to-br from-red-500 to-pink-500 rounded-2xl mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
-                <i className="ri-shield-check-line text-4xl text-white"></i>
+                <i className="ri-flashlight-line text-4xl text-white"></i>
               </div>
-              <h4 className="text-2xl font-bold mb-4 text-gray-900">Regalis Japan Groupが母体の安心感</h4>
+              <h4 className="text-2xl font-bold mb-4 text-gray-900">10秒で自社サイトができる</h4>
               <p className="text-lg text-gray-700 leading-relaxed">
-                単なる制作会社ではなく、事業主体としての実績を持つグループが運営。ビジネスの現場を理解した、地に足のついた提案を行います。
+                独自のシステムにより、最短10秒でデザインカンプを作成。圧倒的なスピードで事業をスタートできます。
               </p>
             </div>
 
@@ -60,20 +60,25 @@ export default function About() {
               <div className="w-20 h-20 flex items-center justify-center bg-gradient-to-br from-rose-500 to-orange-500 rounded-2xl mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
                 <i className="ri-team-line text-4xl text-white"></i>
               </div>
-              <h4 className="text-2xl font-bold mb-4 text-gray-900">プロのマーケティングチームによる戦略設計</h4>
+              <h4 className="text-2xl font-bold mb-4 text-gray-900">プロのマーケティングチームが担当する</h4>
               <p className="text-lg text-gray-700 leading-relaxed">
-                「作って終わり」ではありません。建築・塗装業界の相場感や顧客動向を熟知したチームが、売れる構成を組み立てます。
+                建築・塗装業界の相場感や顧客動向を熟知したプロのマーケティングチームが、売れる構成を組み立てます。
               </p>
             </div>
 
             {/* 理由3 */}
             <div className="group bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-10 hover:shadow-2xl transition-all duration-300 hover:scale-105 border-4 border-white">
               <div className="w-20 h-20 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
-                <i className="ri-palette-line text-4xl text-white"></i>
+                <i className="ri-edit-box-line text-4xl text-white"></i>
               </div>
-              <h4 className="text-2xl font-bold mb-4 text-gray-900">北欧フィンランドのデザイン思考×日本最速</h4>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                代表はフィンランド最大の芸術系大学にてデザイン思考を修了。本場のアールト大学等で培われた「本質的な美」と「機能性」を、独自のシステムにより**最短10秒（※カンプ作成）**で形にします。
+              <h4 className="text-2xl font-bold mb-4 text-gray-900">
+                CMS<sup className="text-xs text-gray-500">※</sup>が永続的に無料で利用できる
+              </h4>
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                オプション付き利用の場合は、CMS（コンテンツ管理システム）が永続的に無料でご利用いただけます。
+              </p>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                ※コンテンツの量によっては追加料金がかかります。
               </p>
             </div>
           </div>

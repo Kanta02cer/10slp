@@ -19,7 +19,7 @@ export default function Services() {
         {/* SAISOKUプラン */}
         <div className="mb-20">
           <h3 className="text-4xl md:text-5xl font-bold text-center mb-6 bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
-            SAISOKUプラン
+            SAISOKUプラン（固定5セクション）
           </h3>
           <p className="text-xl text-gray-700 text-center mb-12 font-medium">
             企業ロゴを共有するだけで、当日中に作成できるLP
@@ -42,7 +42,7 @@ export default function Services() {
                 <ul className="space-y-3 text-left max-w-2xl mx-auto">
                   <li className="flex items-start gap-3">
                     <i className="ri-check-line text-orange-500 text-xl mt-1 flex-shrink-0"></i>
-                    <span className="text-gray-700">ヒーローセクション（メインビジュアル・キャッチコピー）</span>
+                    <span className="text-gray-700">ヒーローセクション</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <i className="ri-check-line text-orange-500 text-xl mt-1 flex-shrink-0"></i>
@@ -58,7 +58,7 @@ export default function Services() {
                   </li>
                   <li className="flex items-start gap-3">
                     <i className="ri-check-line text-orange-500 text-xl mt-1 flex-shrink-0"></i>
-                    <span className="text-gray-700">CTA（お問い合わせ・申し込み）セクション</span>
+                    <span className="text-gray-700">CTA（お問い合わせ・申込）セクション</span>
                   </li>
                 </ul>
               </div>
@@ -81,10 +81,11 @@ export default function Services() {
           </p>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {/* エントリープラン */}
+            {/* スタータープラン */}
             <div className="bg-white rounded-3xl p-8 shadow-xl border-4 border-gray-200 hover:border-red-300 transition-all duration-300 hover:scale-105">
               <div className="text-center mb-6">
-                <h4 className="text-2xl font-bold text-gray-900 mb-2">エントリー</h4>
+                <h4 className="text-2xl font-bold text-gray-900 mb-2">スターター</h4>
+                <div className="text-sm text-red-600 font-medium mb-2">（初めての方はこちら）※</div>
                 <div className="text-4xl font-bold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent mb-4">
                   165,000円
                 </div>
@@ -94,12 +95,9 @@ export default function Services() {
                 <div className="flex items-start gap-3">
                   <i className="ri-check-line text-emerald-500 text-xl mt-1"></i>
                   <div>
-                    <div className="font-bold text-gray-900">基本デザイン</div>
-                    <div className="text-sm text-gray-600">（公開後修正1回）</div>
+                    <div className="font-bold text-gray-900">基本デザインと自由構成</div>
+                    <div className="text-sm text-gray-600">（お客様側からの持ち込み必須）</div>
                   </div>
-                </div>
-                <div className="text-sm text-gray-600 pt-2 border-t border-gray-200">
-                  ※構成案はお客様支給
                 </div>
               </div>
             </div>
@@ -202,7 +200,7 @@ export default function Services() {
                 <div className="text-2xl text-gray-700 mb-2">規模目安</div>
                 <div className="text-lg text-gray-600 mb-4">A4換算 約3枚分</div>
                 <div className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-4">
-                  165,000円
+                  33万円
                 </div>
                 <div className="text-sm text-gray-600">（税込）</div>
               </div>
@@ -215,7 +213,7 @@ export default function Services() {
                 <div className="text-2xl text-gray-700 mb-2">規模目安</div>
                 <div className="text-lg text-gray-600 mb-4">A4換算 約8枚分</div>
                 <div className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-4">
-                  330,000円
+                  66万円
                 </div>
                 <div className="text-sm text-gray-600">（税込）</div>
               </div>
@@ -231,7 +229,7 @@ export default function Services() {
                 <div className="text-2xl text-gray-700 mb-2">規模目安</div>
                 <div className="text-lg text-gray-600 mb-4">A4換算 約10枚分〜</div>
                 <div className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-4">
-                  1,100,000円〜
+                  110万円
                 </div>
                 <div className="text-sm text-gray-600">（税込）</div>
               </div>
@@ -283,16 +281,93 @@ export default function Services() {
           </div>
         </div>
 
+        {/* ポートフォリオ */}
+        <div className="mb-20">
+          <h3 className="text-4xl md:text-5xl font-bold text-center mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            ポートフォリオ
+          </h3>
+          <p className="text-xl text-gray-700 text-center mb-12 font-medium">
+            実際のサイトのワイヤーフレーム、デザインカンプを提示します
+          </p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <a
+              href="https://crosslab.readdy.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
+            >
+              <div className="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                株式会社CROSSLAB
+              </div>
+              <div className="text-sm text-purple-600 break-all">crosslab.readdy.co</div>
+            </a>
+
+            <a
+              href="https://komuten-osaka-fc.readdy.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
+            >
+              <div className="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                株式会社万代
+              </div>
+              <div className="text-sm text-purple-600 break-all">komuten-osaka-fc.readdy.co</div>
+            </a>
+
+            <a
+              href="https://banken-recruit.readdy.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
+            >
+              <div className="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                株式会社万代建設
+              </div>
+              <div className="text-sm text-purple-600 break-all">banken-recruit.readdy.co</div>
+            </a>
+
+            <a
+              href="https://pagurisutaclub.readdy.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
+            >
+              <div className="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                PAGRISTA CLUB Pullover Hoodie
+              </div>
+              <div className="text-xs text-gray-600 mb-1">（ゴルフファッションブランド）</div>
+              <div className="text-sm text-purple-600 break-all">pagurisutaclub.readdy.co</div>
+            </a>
+
+            <a
+              href="https://bandai-recruit.readdy.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
+            >
+              <div className="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                株式会社万代（採用情報）
+              </div>
+              <div className="text-sm text-purple-600 break-all">bandai-recruit.readdy.co</div>
+            </a>
+
+            <a
+              href="https://banken-paint.readdy.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:scale-105 group"
+            >
+              <div className="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                BANKEN塗装
+              </div>
+              <div className="text-sm text-purple-600 break-all">banken-paint.readdy.co</div>
+            </a>
+          </div>
+        </div>
+
         {/* CTA */}
         <div className="text-center mt-16">
-          <p className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
-            「今すぐ、この物件の良さを世に出したい」<br />
-            その想い、私たちが10秒で形にし始めます。
-          </p>
-          <p className="text-xl text-gray-700 mb-8">
-            まずは貴社の課題をお聞かせください。<br />
-            本日中にデザインカンプをご提示することも可能です。
-          </p>
           <a
             href="https://line.me/R/ti/p/@your-line-id"
             target="_blank"
