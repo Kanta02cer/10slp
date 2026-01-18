@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 export default function About() {
   const [isVisible, setIsVisible] = useState<Record<number, boolean>>({});
 
