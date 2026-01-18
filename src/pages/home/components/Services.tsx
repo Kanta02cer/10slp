@@ -1,4 +1,13 @@
 export default function Services() {
+  // ポートフォリオ画像のパス（URLエンコード）
+  const portfolioImages = {
+    crosslab: encodeURI('/スクリーンショット 2026-01-18 14.41.28.png'),
+    bandai: encodeURI('/スクリーンショット 2026-01-18 14.41.47.png'),
+    bankenRecruit: encodeURI('/スクリーンショット 2026-01-18 14.41.57.png'),
+    pagurisuta: encodeURI('/スクリーンショット 2026-01-18 14.42.05.png'),
+    bandaiRecruit: encodeURI('/スクリーンショット 2026-01-18 14.42.12.png'),
+    bankenPaint: encodeURI('/スクリーンショット 2026-01-18 14.42.20.png'),
+  };
   return (
     <section id="services" className="relative py-32 bg-gradient-to-br from-rose-50 via-white to-emerald-50 overflow-hidden">
       {/* Background Elements */}
@@ -299,7 +308,7 @@ export default function Services() {
             >
               <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                 <img
-                  src="/スクリーンショット 2026-01-18 14.41.28.png"
+                  src={portfolioImages.crosslab}
                   alt="株式会社CROSSLAB トップ画面"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   loading="lazy"
@@ -322,7 +331,7 @@ export default function Services() {
             >
               <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                 <img
-                  src="/スクリーンショット 2026-01-18 14.41.47.png"
+                  src={portfolioImages.bandai}
                   alt="株式会社万代 トップ画面"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   loading="lazy"
@@ -345,7 +354,7 @@ export default function Services() {
             >
               <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                 <img
-                  src="/スクリーンショット 2026-01-18 14.41.57.png"
+                  src={portfolioImages.bankenRecruit}
                   alt="株式会社万代建設 トップ画面"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   loading="lazy"
@@ -368,7 +377,7 @@ export default function Services() {
             >
               <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                 <img
-                  src="/スクリーンショット 2026-01-18 14.42.05.png"
+                  src={portfolioImages.pagurisuta}
                   alt="PAGRISTA CLUB Pullover Hoodie トップ画面"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   loading="lazy"
@@ -392,7 +401,7 @@ export default function Services() {
             >
               <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                 <img
-                  src="/スクリーンショット 2026-01-18 14.42.12.png"
+                  src={portfolioImages.bandaiRecruit}
                   alt="株式会社万代（採用情報） トップ画面"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   loading="lazy"
@@ -415,7 +424,7 @@ export default function Services() {
             >
               <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                 <img
-                  src="/スクリーンショット 2026-01-18 14.42.20.png"
+                  src={portfolioImages.bankenPaint}
                   alt="BANKEN塗装 トップ画面"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   loading="lazy"
