@@ -84,31 +84,12 @@ export default function Hero() {
             transition: 'all 0.5s ease',
           }}
         >
-          {/* Animated gradient border on hover */}
-          <div 
-            className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            style={{
-              background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(251, 113, 133, 0.3), rgba(16, 185, 129, 0.3), rgba(20, 184, 166, 0.3))',
-              filter: 'blur(8px)',
-              zIndex: -1,
-            }}
-          />
-          
           <img 
-            src="https://static.readdy.ai/image/b5df369270f37f8723a252918bb84c70/a2417c44708479b44380b56b2d1311f7.png" 
+            src="/a2417c44708479b44380b56b2d1311f7.png" 
             alt="10'sLP Logo" 
-            className={`w-auto transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-2xl ${scrolled ? 'h-12' : 'h-24'}`}
+            className={`w-auto transition-all duration-500 group-hover:drop-shadow-[0_0_20px_rgba(239,68,68,0.6)] group-hover:brightness-110 ${scrolled ? 'h-12' : 'h-24'}`}
             style={{
               filter: 'drop-shadow(0 4px 12px rgba(239, 68, 68, 0.2))',
-            }}
-          />
-          
-          {/* Shine effect on hover */}
-          <div 
-            className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-            style={{
-              background: 'linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%)',
-              animation: 'shine 2s infinite',
             }}
           />
         </div>
